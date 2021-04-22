@@ -1,10 +1,11 @@
 var canvas = document.getElementById('snake');
 var display = document.getElementById('display');
-
+var sdis = document.getElementById('score')
 var ctx = canvas.getContext("2d");
 const grid=32;
 ctx.fillStyle="red"
 
+var score=0;
 
 
 // ctx.fillRect(32,42,32,32)
@@ -45,6 +46,7 @@ document.addEventListener('keydown',(e)=>{
         d="down"
       }
     console.log(d);
+    console.log(score)
 })
 
 function Restart(){
@@ -91,11 +93,15 @@ function draw(){
 
     // remove from last array
     if(snakeX == beer.x && snakeY == beer.y){
+        score++;
+        sdis.innerHTML=score
+        
         beer = {
             x : Math.floor(Math.random()*17+1)*grid, //total 19 rows but we are ignoring 2 rows first and last (17)
             y : Math.floor(Math.random()*15+1)*grid, //total 17 column but same logic
         
         }
+        
     }else{
         snake.pop();
     }
