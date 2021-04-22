@@ -51,7 +51,7 @@ document.addEventListener('keydown',(e)=>{
 
 function Restart(){
     snake = []
-
+    score=0;
     snake[0]={
         x:9*grid,
         y:10*grid,
